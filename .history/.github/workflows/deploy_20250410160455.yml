@@ -1,0 +1,55 @@
+name: CI/CD GitHub Pages
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  deploy_or_pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set variables
+        run: |
+          echo "ACTOR=${{ github.actor }}" >> $GITHUB_ENV
+          echo "BRANCH=${GITHUB_REF##*/}" >> $GITHUB_ENV
+
+      - name: Deploy or Create PR
+        run: |
+          echo "Auteur du push : $ACTOR"
+          echo "Branche actuelle : $BRANCH"
+
+          if [ "$ACTOR" = "imani08" ] && [ "$BRANCH" = "main" ]; then
+            echo "🎉 Push autorisé par $ACTOR, déploiement vers GitHub Pages..."
+
+            mkdir public
+            cp -r * public || true
+            rm -rf public/.git || true
+            touch public/.nojekyll
+
+            cd public
+
+            git init
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add .
+            git commit -m "Déploiement GitHub Pages"
+            git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" master:gh-pages
+
+          else
+            echo "📬 Création d'une PR automatique (push non autorisé dans main par $ACTOR)"
+
+            NEW_BRANCH="auto-${ACTOR}-${BRANCH}"
+            git checkout -b $NEW_BRANCH
+            git push origin $NEW_BRANCH
+
+            gh pr create --title "PR automatique par ${ACTOR}" \
+                         --body "Pull request créée automatiquement depuis la branche ${BRANCH}" \
+                         --base main \
+                         --head $NEW_BRANCH
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

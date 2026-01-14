@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBERFORM</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+            --text-color: #2b2d42;
+            --text-light: #8d99ae;
+        }
+        
+        body {
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+        
+        .primary-color {
+            color: var(--primary-color);
+        }
+        
+        /* Style du formulaire */
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form input,
+        .contact-form select {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .contact-form button {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form button:hover {
+            background: var(--secondary-color);
+        }
+        
+        /* Liens téléphone */
+        a[href^="tel:"] {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        a[href^="tel:"]:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
+        /* Amélioration de la lisibilité */
+        .slogan p,
+        .about-slogan p,
+        .review-content p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3 {
+            color: var(--dark-color);
+        }
+        
+        /* Boutons */
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--Mobile nav-->
+    <div class="mb-nav">
+        <div class="mb-move-item"></div>
+        <div class="mb-nav-item active">
+            <a href="#home">
+                <i class="bx bxs-home"></i>
+            </a>
+        </div>
+        <div class="mb-nav-item">
+            <a href="#about">
+                <i class='bx bxs-wink-smile'></i>
+            </a>
+        </div>
+        <div class="mb-nav-item">
+            <a href="#schedule-section">
+                <i class='bx bxs-calendar'></i>
+            </a>
+        </div>
+        <div class="mb-nav-item">
+            <a href="#testimonial">
+                <i class='bx bxs-comment-detail'></i>
+            </a>
+        </div>
+    </div>
+    <!--Mobile nav ends-->
+    <!--Back to top-->
+    <a href="#home" class="back-to-top">
+        <i class="bx bxs-to-top"></i>
+    </a>
+    <!--Back to top ends-->
+
+    <!-- TOP NAVIGATION -->
+    <div class="nav">
+        <div class="menu-wrap">
+            <a href="#home">
+                <div class="logo">
+                    #CYBERFORM
+                </div>
+            </a>
+            <div class="menu h-xs">
+                <a href="#home">
+                    <div class="menu-item active">
+                        Accueil
+                    </div>
+                </a>
+                <a href="#about">
+                    <div class="menu-item">
+                        À propos
+                    </div>
+                </a>
+                <a href="#schedule-section">
+                    <div class="menu-item">
+                        Programme
+                    </div>
+                </a>
+                <a href="#testimonial">
+                    <div class="menu-item">
+                        Témoignages
+                    </div>
+                </a>
+            </div>
+            <div class="right-menu">
+                <a href="#register" class="register-btn">
+                    <i class='bx bx-user-plus'></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- END TOP NAVIGATION -->
+
+    <!--Section home-->
+    <section id="home" class="fullheight align-item-center bg-img bg-img-fixed" 
+    style="background-image: url(https://images.unsplash.com/photo-1551033406-611cf9a28f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 colxs-12">
+                    <div class="slogan">
+                        <h1 class="left-to-right play-on-scroll">
+                            Formations pro en DevOps
+                        </h1>
+                        <p class="left-to-right play-on-scroll delay-2" style="color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                            Maîtrisez le versioning et le déploiement continu dans cet atelier pratique organisé par le BDE, Club Info et ULC-ICAM.
+                        </p>
+                        <div class="left-to-right play-on-scroll delay-4">
+                            <a href="#register" class="btn">S'inscrire maintenant</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Section home end-->
+
+    <!--Secion-About-->
+    <section class="about fullheight align-items-center" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-7 h-xs">
+                    <img src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt=""
+                        class="fullwidth left-to-right play-on-scroll">
+                </div>
+                <div class="col-5 col-xs-12 align-items-center">
+                    <div class="about-slogan right-to-left play-on-scroll">
+                        <h3>
+                            <span class="primary-color">Nous</span> enseignons les <span class="primary-color">compétences</span>
+                            essentielles pour <span class="primary-color">développeurs</span>
+                        </h3>
+                        <p style="color: #444;">
+                            Cet atelier complet couvrira les fondamentaux de Git, les workflows GitHub et les pipelines CI/CD. Que vous soyez débutant ou que vous souhaitiez perfectionner vos compétences, nos experts vous guideront à travers des scénarios pratiques.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END SECION ABOUT -->
+
+    <!-- SCHEDULE SECTION -->
+    <section class="align-items-center bg-img bg-img-fixed" id="schedule-section"
+        style="background-image: url(https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);">
+        <div class="container">
+            <div class="food-menu">
+                <h1 style="color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
+                    Programme de <span class="primary-color">l'atelier</span>
+                </h1>
+                <p style="color: #eee;">
+                    Notre atelier intensif de deux jours couvre tout du contrôle de version basique aux concepts avancés de CI/CD. Voici ce que vous apprendrez :
+                </p>
+                <div class="food-category">
+                    <div class="zoom play-on-scroll">
+                        <button class="active" data-food-type="all">
+                            Toutes les sessions
+                        </button>
+                    </div>
+                    <div class="zoom play-on-scroll delay-2">
+                        <button data-food-type="day1">
+                            Jour 1
+                        </button>
+                    </div>
+                    <div class="zoom play-on-scroll delay-4">
+                        <button data-food-type="day2">
+                            Jour 2
+                        </button>
+                    </div>
+                    <div class="zoom play-on-scroll delay-6">
+                        <button data-food-type="bonus">
+                            Bonus
+                        </button>
+                    </div>
+                </div>
+
+                <div class="food-item-wrap all">
+                    <div class="food-item day1-type">
+                        <div class="item-wrap bottom-up play-on-scroll">
+                            <div class="item-img">
+                                <div class="img-holder bg-img"
+                                    style="background-image: url(https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);"></div>
+                            </div>
+                            <div class="item-info">
+                                <div>
+                                    <h3>
+                                        Fondamentaux de Git
+                                    </h3>
+                                    <span>
+                                        9h00 - 11h00
+                                    </span>
+                                </div>
+                                <div class="cart-btn">
+                                    <i class="bx bx-bookmark"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="food-item day1-type">
+                        <div class="item-wrap bottom-up play-on-scroll">
+                            <div class="item-img">
+                                <div class="img-holder bg-img"
+                                    style="background-image: url('https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                            </div>
+                            <div class="item-info">
+                                <div>
+                                    <h3>
+                                        Stratégies de branchement
+                                    </h3>
+                                    <span>
+                                        11h30 - 13h00
+                                    </span>
+                                </div>
+                                <div class="cart-btn">
+                                    <i class='bx bx-bookmark'></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="food-item day2-type">
+                        <div class="item-wrap bottom-up play-on-scroll">
+                            <div class="item-img">
+                                <div class="img-holder bg-img"
+                                    style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                                </div>
+                            </div>
+                            <div class="item-info">
+                                <div>
+                                    <h3>
+                                        Workflows GitHub
+                                    </h3>
+                                    <span>
+                                        9h00 - 10h30
+                                    </span>
+                                </div>
+                                <div class="cart-btn">
+                                    <i class='bx bx-bookmark'></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="food-item day2-type">
+                        <div class="item-wrap bottom-up play-on-scroll">
+                            <div class="item-img">
+                                <div class="img-holder bg-img"
+                                    style="background-image: url('https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                            </div>
+                            <div class="item-info">
+                                <div>
+                                    <h3>
+                                        Pipelines CI/CD
+                                    </h3>
+                                    <span>
+                                        11h00 - 13h00
+                                    </span>
+                                </div>
+                                <div class="cart-btn">
+                                    <i class='bx bx-bookmark'></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="food-item bonus-type">
+                        <div class="item-wrap bottom-up play-on-scroll">
+                            <div class="item-img">
+                                <div class="img-holder bg-img"
+                                    style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                            </div>
+                            <div class="item-info">
+                                <div>
+                                    <h3>
+                                        Contribution Open Source
+                                    </h3>
+                                    <span>
+                                        14h00 - 15h30
+                                    </span>
+                                </div>
+                                <div class="cart-btn">
+                                    <i class='bx bx-bookmark'></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="food-item bonus-type">
+                        <div class="item-wrap bottom-up play-on-scroll">
+                            <div class="item-img">
+                                <div class="img-holder bg-img"
+                                    style="background-image: url('https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                            </div>
+                            <div class="item-info">
+                                <div>
+                                    <h3>
+                                        Session Q&R
+                                    </h3>
+                                    <span>
+                                        16h00 - 17h00
+                                    </span>
+                                </div>
+                                <div class="cart-btn">
+                                    <i class='bx bx-bookmark'></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END SCHEDULE SECTION -->
+
+    <!--Testimonials start-->
+    <section id="testimonial">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 col-xs-12">
+                    <div class="review-wrap zoom play-on-scroll delay-2">
+                        <div class="review-content">
+                            <p style="color: #444;">
+                                Cet atelier a complètement changé ma façon d'aborder le contrôle de version. Les exercices pratiques ont rendu les concepts complexes faciles à comprendre.
+                            </p>
+                            <div class="review-img bg-img" 
+                            style="background-image: url(https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);">
+                            </div>
+                        </div>
+                        <div class="review-info">
+                            <h3>
+                                Sarah K.
+                            </h3>
+                            <div class="rating">                                
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-xs-12">
+                    <div class="zoom play-on-scroll">
+                    <div class="review-wrap active">
+                        <div class="review-content">
+                            <p style="color: #444;">
+                                Les formateurs étaient incroyablement compétents et patients. Je suis passé de ne rien connaître de Git à me sentir confiant dans mes compétences.
+                            </p>
+                            <div class="review-img bg-img" 
+                            style="background-image: url(https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);">
+                            </div>
+                        </div>
+                        <div class="review-info">
+                            <h3>
+                                Michael T.
+                            </h3>
+                            <div class="rating">                                
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-4 col-xs-12">
+                    <div class="review-wrap zoom play-on-scroll delay-4">
+                        <div class="review-content">
+                            <p style="color: #444;">
+                                La session sur le CI/CD était particulièrement précieuse. J'ai mis en pratique ce que j'ai appris dès le lendemain au travail et cela m'a déjà fait gagner des heures.
+                            </p>
+                            <div class="review-img bg-img" 
+                            style="background-image: url(https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);">
+                            </div>
+                        </div>
+                        <div class="review-info">
+                            <h3>
+                                David L.
+                            </h3>
+                            <div class="rating">                                
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star-half"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Testimonials Ends-->
+
+    <!-- Registration Section -->
+     <!-- Registration Section -->
+     <section id="register" class="fullheight align-items-center" style="background-color: var(--light-color);">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-xs-12">
+                    <div class="slogan">
+                        <h1 class="left-to-right play-on-scroll">
+                            Inscription à l'atelier
+                        </h1>
+                        <p class="left-to-right play-on-scroll delay-2">
+                            Réservez votre place dès maintenant pour cet atelier exclusif organisé par le BDE, Club Info et ULC-ICAM.
+                        </p>
+                        <div class="left-to-right play-on-scroll delay-4">
+                            <a href="#contact" class="btn">Nous contacter</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xs-12">
+                    <div class="contact-form right-to-left play-on-scroll delay-4">
+                        <h2 style="margin-bottom: 1.5rem; text-align: center;">Formulaire d'inscription</h2>
+                        <form action="#" method="POST">
+                            <input type="text" name="name" placeholder="Votre nom complet" required>
+                            <input type="email" name="email" placeholder="Votre email" required>
+                            <input type="tel" name="phone" placeholder="Votre numéro de téléphone">
+                            <select name="niveau" required>
+                                <option value="" disabled selected>Votre niveau technique</option>
+                                <option value="debutant">Débutant</option>
+                                <option value="intermediaire">Intermédiaire</option>
+                                <option value="avance">Avancé</option>
+                            </select>
+                            <button type="submit" class="btn">Valider l'inscription</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Registration Section -->
+    
+    <!--Footer-->
+<section class="footer bg-img" style="position: relative; background-image: url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80); padding-bottom: 0; margin-bottom: 0; background-size: cover; background-position: center;">
+    <!-- Overlay sombre -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 1;"></div>
+
+    <!-- Contenu -->
+    <div class="container" style="position: relative; z-index: 2; padding-bottom: 0; margin-bottom: 0;">
+        <div class="row">
+            <div class="col-6 col-xs-12">
+                <h1 style="color: white;">
+                    Atelier Git & DevOps
+                </h1>
+                <br>
+                <p style="color: rgba(255,255,255,0.8);">
+                    Organisé par le BDE, Club Info et ULC-ICAM pour fournir aux étudiants les compétences essentielles pour les workflows de développement moderne.
+                </p>
+                <br>
+                <p><a href="mailto:workshop@icam.dev" style="color: rgba(255,255,255,0.8);">workshop@icam.dev</a></p>
+                <p><a href="tel:+1234567890" style="color: rgba(255,255,255,0.8);">+123 456 7890</a></p>
+                <p><a href="https://www.icam.dev/workshops" target="_blank" style="color: rgba(255,255,255,0.8);">www.icam.dev/workshops</a></p>
+            </div>
+            <div class="col-2 col-xs-12">
+                <h1 style="color: white;">
+                    Navigation
+                </h1>
+                <br>
+                <p><a href="#about" style="color: rgba(255,255,255,0.8);">À propos</a></p>
+                <p><a href="#schedule-section" style="color: rgba(255,255,255,0.8);">Programme</a></p>
+                <p><a href="#testimonial" style="color: rgba(255,255,255,0.8);">Témoignages</a></p>
+                <p><a href="#register" style="color: rgba(255,255,255,0.8);">Inscription</a></p>
+            </div>
+            <div class="col-4 col-xs-12">
+                <h1 style="color: white;">
+                    Restez informés
+                </h1>
+                <br>
+                <p style="color: rgba(255,255,255,0.8);">
+                    Abonnez-vous à notre newsletter pour recevoir les annonces de nos prochains événements.
+                </p>
+                <div class="input-group" style="margin-top: 1rem;">
+                    <input type="email" placeholder="Votre email" style="padding: 10px; border: none; border-radius: 5px 0 0 5px; width: 60%;">
+                    <button style="padding: 10px 15px; background: var(--primary-color); color: white; border: none; border-radius: 0 5px 5px 0; cursor: pointer;">
+                        S'abonner
+                    </button>
+                </div>
+                <div class="social-links" style="margin-top: 1.5rem;">
+                    <a href="#" style="color: white; margin-right: 1rem; font-size: 1.5rem;"><i class='bx bxl-facebook'></i></a>
+                    <a href="#" style="color: white; margin-right: 1rem; font-size: 1.5rem;"><i class='bx bxl-twitter'></i></a>
+                    <a href="#" style="color: white; margin-right: 1rem; font-size: 1.5rem;"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#" style="color: white; font-size: 1.5rem;"><i class='bx bxl-instagram'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 1rem; padding-top: 1rem; padding-bottom: 0; border-top: 1px solid rgba(255,255,255,0.1);">
+            <div class="col-12" style="text-align: center; color: rgba(255,255,255,0.6);">
+                <p>© 2025 Atelier Git & DevOps - BDE, Club Info & ULC-ICAM. Tous droits réservés.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Footer Ends-->
+
+
+    <script src="index.js"></script>
+</body>
+</html>
