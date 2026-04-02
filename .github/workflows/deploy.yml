@@ -59,13 +59,13 @@ jobs:
 
     - name: Build Docker images
       run: |
-        sudo docker build -t imanyduc/node-simple-app:latest .
-        sudo docker build -t imanyduc/node-simple-app:${{ env.TAG }} .
+        docker build -t imanyduc/node-simple-app:latest .
+        docker build -t imanyduc/node-simple-app:${{ env.TAG }} .
 
     - name: Push Docker images
       run: |
-        sudo docker push imanyduc/node-simple-app:latest
-        sudo docker push imanyduc/node-simple-app:${{ env.TAG }}
+        docker push imanyduc/node-simple-app:latest
+        docker push imanyduc/node-simple-app:${{ env.TAG }}
 
     # =========================
     # 7️⃣ CI/CD K3s
