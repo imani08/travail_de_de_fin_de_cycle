@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Node.js CI/CD
 
 on:
   push:
@@ -11,39 +11,84 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # -------------------------
+    # 1️⃣ Checkout du repo
+    # -------------------------
     - name: Checkout repo
       uses: actions/checkout@v3
 
+    # -------------------------
+    # 2️⃣ Setup Node.js
+    # -------------------------
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: 18
 
+    # -------------------------
+    # 3️⃣ Installer dépendances
+    # -------------------------
     - name: Install dependencies
       run: npm install
 
+    # -------------------------
+    # 4️⃣ Run tests
+    # -------------------------
     - name: Run tests
       run: npm test || echo "No tests configured"
 
+    # -------------------------
+    # 5️⃣ Optionnel: start app
+    # -------------------------
     - name: Start app (optional)
       run: npm start &
 
     # =========================
-    # AJOUT CI/CD DOCKER 👇
+    # 6️⃣ CI/CD Docker
     # =========================
 
     - name: Set Docker tag
       run: echo "TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
+      # Crée une variable TAG avec les 7 premiers caractères du commit
 
     - name: Login to Docker Hub
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      # Se connecte à Docker Hub en utilisant les secrets
 
     - name: Build Docker images
       run: |
         docker build -t imanyduc/node-simple-app:latest .
         docker build -t imanyduc/node-simple-app:${{ env.TAG }} .
+      # Build deux images : latest et commit spécifique (TAG)
 
     - name: Push Docker images
       run: |
         docker push imanyduc/node-simple-app:latest
         docker push imanyduc/node-simple-app:${{ env.TAG }}
+      # Push sur Docker Hub
+
+    # =========================
+    # 7️⃣ CI/CD K3s
+    # =========================
+
+    - name: Setup kubectl
+      uses: azure/setup-kubectl@v3
+      with:
+        version: 'v1.28.0'
+      # Installe kubectl dans le runner
+
+    - name: Setup Kubeconfig
+      run: |
+        mkdir -p $HOME/.kube
+        echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
+      # Restaure ton kubeconfig encodé en secret GitHub
+
+    - name: Deploy to K3s
+      run: |
+        kubectl apply -f .k8s/namespace.yaml
+        kubectl apply -f .k8s/sa.yaml
+        kubectl apply -f .k8s/role.yaml
+        kubectl apply -f .k8s/rolebinding.yaml
+        kubectl apply -f .k8s/deployment.yaml
+        kubectl apply -f .k8s/service.yaml
+      # Applique tous les manifests Kubernetes sur ton cluster K3s
